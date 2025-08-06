@@ -23,11 +23,11 @@ jobs:
 
     - name: Build Game
       run: |
-        & "C:\Program Files\GameMaker\GameMaker.exe" `
+        & "$env:GITHUB_WIN_GAMEMAKER_PATH" `
         --compile `
         --project "$env:GITHUB_WORKSPACE\MyGame.yyp" `
         --output "$env:GITHUB_WORKSPACE\build" `
-        --runtime "C:\ProgramData\GameMakerStudio2\Cache\runtimes\runtime-2024.13.1.242" `
+        --runtime "$env:GITHUB_WIN_GAMEMAKER_RUNTIME_PATH" `
         --target Windows `
         --config Default `
         --v
