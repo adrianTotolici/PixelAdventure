@@ -6,6 +6,7 @@ on:
 
 jobs:
   build:
+    name: DESKTOP-PDVBF6B
     runs-on: [self-hosted, Windows]
 
     steps:
