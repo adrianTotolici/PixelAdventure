@@ -8,6 +8,11 @@ jobs:
   build:
     name: DESKTOP-PDVBF6B
     runs-on: [self-hosted, Windows]
+    
+    env:
+      GMS_RUNTIME_PATH: ${{ vars.WIN_GAMEMAKER_RUNTIME_PATH }}
+      GMS_PATH: ${{ vars.WIN_GAMEMAKER_PATH }}
+
 
     steps:
     - name: Run PowerShell script with ExecutionPolicy Bypass
@@ -23,11 +28,11 @@ jobs:
 
     - name: Build Game
       run: |
-        & "$env:WIN_GAMEMAKER_PATH" `
+        & "$env:GMS_PATH" `
         --compile `
         --project "$env:GITHUB_WORKSPACE\MyGame.yyp" `
         --output "$env:GITHUB_WORKSPACE\build" `
-        --runtime "$env:WIN_GAMEMAKER_RUNTIME_PATH" `
+        --runtime "$env:GMS_RUNTIME_PATH" `
         --target Windows `
         --config Default `
         --v
