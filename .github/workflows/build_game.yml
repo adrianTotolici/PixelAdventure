@@ -1,0 +1,29 @@
+name: Build GameMaker Game
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: [self-hosted, DESKTOP-PDVBF6B]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up GameMaker build environment
+      run: |
+        echo Setting up GameMaker environment
+        mkdir build
+
+    - name: Build Game
+      run: |
+        "C:\Program Files\GameMaker\GameMaker.exe" ^
+        --compile ^
+        --project "%GITHUB_WORKSPACE%\MyGame.yyp" ^
+        --output "%GITHUB_WORKSPACE%\build" ^
+        --runtime "C:\ProgramData\GameMakerStudio2\Cache\runtimes\runtime-2024.13.1.242" ^
+        --target Windows ^
+        --config Default ^
+        --v
