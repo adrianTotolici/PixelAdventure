@@ -10,10 +10,10 @@ jobs:
     runs-on: [self-hosted, Windows]
 
     steps:
-    - name: Set PowerShell execution policy
-      shell: powershell
-      run: Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
-
+    - name: Set PowerShell Execution Policy
+      run: Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+      shell: pwsh
+    
     - name: Checkout code
       uses: actions/checkout@v3
 
