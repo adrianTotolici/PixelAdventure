@@ -1,0 +1,39 @@
+name: Build GameMaker Game
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: DESKTOP-PDVBF6B
+    runs-on: [self-hosted, Windows]
+    
+    env:
+      GMS_RUNTIME_PATH: ${{ vars.WIN_GAMEMAKER_RUNTIME_PATH }}
+      GMS_PATH: ${{ vars.WIN_GAMEMAKER_PATH }}
+
+
+    steps:
+    - name: Run PowerShell script with ExecutionPolicy Bypass
+      run: powershell -ExecutionPolicy Bypass -Command "echo 'Execution policy bypassed successfully'"
+    
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up GameMaker build environment
+      run: |
+        echo Setting up GameMaker environment
+        mkdir build
+
+    - name: Build Game
+      run: |
+        & "$env:GMS_PATH" `
+        --compile `
+        --project "$env:GITHUB_WORKSPACE\Adventure Guy.yyp" `
+        --output "$env:GITHUB_WORKSPACE\build" `
+        --runtime "$env:GMS_RUNTIME_PATH" `
+        --target Windows `
+        --config Default `
+        --v
+
