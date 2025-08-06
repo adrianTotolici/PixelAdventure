@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: [self-hosted, DESKTOP-PDVBF6B]
+    runs-on: [self-hosted, Windows]
 
     steps:
     - name: Checkout code
