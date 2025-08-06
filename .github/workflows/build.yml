@@ -1,0 +1,22 @@
+name: Run on Push
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  default-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: List project files
+        run: ls -la
+
+      - name: Show GameMaker project files
+        run: |
+          find . -name "*.yyp"
