@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: Set PowerShell execution policy
       shell: powershell
-      run: Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Process
+      run: Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 
     - name: Checkout code
       uses: actions/checkout@v3
