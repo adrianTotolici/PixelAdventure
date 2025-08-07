@@ -1,13 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_main_menu",
+  "%Name":"obj_grid",
   "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_main_menu",
+  "name":"obj_grid",
   "overriddenProperties":[],
   "parent":{
     "name":"ui",
@@ -28,7 +28,8 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"selected","filters":[],"listItems":[],"multiselect":false,"name":"selected","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"cell_size","filters":[],"listItems":[],"multiselect":false,"name":"cell_size","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"24","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"ui_grid_size","filters":[],"listItems":[],"multiselect":false,"name":"ui_grid_size","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"12","varType":1,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
