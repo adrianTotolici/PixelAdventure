@@ -13,9 +13,11 @@ draw_rectangle(panel_x, panel_y, panel_x + panel_w, panel_y + panel_h, true);
 draw_set_alpha(1);
 
 // === Tile info ===
+var player_tile_pos = terrain_tiles[player_pos_x][player_pos_y];
 var tile_pos = "Tile: (" + string(player_pos_x) + ", " + string(player_pos_y) + ")";
-var terrain_name = terrain_tiles[player_pos_x][player_pos_y].name;
-var tile_msg = terrain_tiles[player_pos_x][player_pos_y].msg;
+var terrain_name = player_tile_pos.name;
+var tile_msg = player_tile_pos.msg;
+var res_info = "Res: "+ string(player_tile_pos.resource.name) + ", " + string(player_tile_pos.resource.quantity);
 
 // === Draw text ===
 draw_set_color(c_white);
@@ -23,4 +25,7 @@ draw_set_font(fnt_game);
 draw_text(panel_x + 8, panel_y + 8, tile_pos);
 draw_text(panel_x + 8, panel_y + 28, terrain_name);
 draw_text(panel_x + 8, panel_y + 48, tile_msg);
+if (player_tile_pos.resource.discoverd && player_tile_pos.resource.available) {
+	draw_text(panel_x + 8, panel_y + 68, res_info);
+}
 

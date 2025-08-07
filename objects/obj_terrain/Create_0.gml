@@ -11,6 +11,6 @@ for (var pos_x = 0; pos_x < grid_cols; pos_x++){
 	terrain_tiles[pos_x] = array_create(grid_rows);
 	for (var pos_y = 0; pos_y < grid_rows; pos_y++){
 		terrain_index = irandom(array_length(terrain_sprites)-1);
-		terrain_tiles[pos_x, pos_y] = TerrainStruct(terrain_sprites[terrain_index], terrain_name[terrain_index],"", false);
+		terrain_tiles[pos_x, pos_y] = TerrainStruct(terrain_sprites[terrain_index], terrain_name[terrain_index],"", false, false);
 	}
 }

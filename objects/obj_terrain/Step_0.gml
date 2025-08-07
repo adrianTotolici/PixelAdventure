@@ -29,7 +29,13 @@ if (player_timer == 0) {
     if (moved) {
         player_timer = player_speed;
     }
-	
 	exploreTerrain(terrain_tiles, player_pos_x, player_pos_y);
-	
+}
+
+if (keyboard_check(vk_escape)) {
+	 room_goto(rm_main_menu);
+}
+
+if (keyboard_check(vk_space)) {
+	discoverRes(terrain_tiles, player_pos_x, player_pos_y);
 }
