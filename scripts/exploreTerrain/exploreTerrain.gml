@@ -81,4 +81,9 @@ function exploreTerrain(terrain_data, pl_pos_x, pl_pos_y){
 			terrain_data[pl_pos_x, pl_pos_y-1].explored = true;
 		}
 	}
+	
+	tile = terrain_data[pl_pos_x, pl_pos_y];
+	if (!tile.explored){
+		terrain_data[pl_pos_x, pl_pos_y].explored = true;
+	}
 }
