@@ -1,3 +1,5 @@
+/// @description Draw main menu
+
 for (var i = 0; i < array_length(menu_options); i++) {
     var text = menu_options[i];
     
