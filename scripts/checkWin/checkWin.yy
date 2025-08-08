@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"checkWin",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"checkWin",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
