@@ -11,3 +11,5 @@ for (var i = 0; i < array_length(menu_options); i++) {
     
     draw_text(x_pos, y_pos + i * 40, text);
 }
+
+draw_text(x_pos_title, y_pos_title, title);

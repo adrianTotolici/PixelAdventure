@@ -45,7 +45,7 @@ function rand_resources(name){
 		return resource_data;
 	}
 	
-		if (name == "Water"){
+	if (name == "Water"){
 		res_index = irandom(array_length(water_res)-1);
 		res_number = irandom(5);
 		res_available =irandom(100);
@@ -57,4 +57,6 @@ function rand_resources(name){
 		
 		return resource_data;
 	}
+	
+	return ResourcesStruct(grass_res_name[res_index], res_number, grass_res[res_index], false, false);
 }
