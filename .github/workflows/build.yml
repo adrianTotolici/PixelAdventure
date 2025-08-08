@@ -1,4 +1,6 @@
 name: Run on Push
+permissions:
+  contents: read
 
 on:
   push:
