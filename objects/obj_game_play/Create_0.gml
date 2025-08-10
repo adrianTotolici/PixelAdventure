@@ -4,6 +4,7 @@ grid_rows = room_height div cell_size;
 
 var water_proc = 0.3;
 win = false;
+lose = false;
 
 terrain_sprites = [spr_t_grass, spr_t_water];
 terrain_name = ["Grass", "Water"];
@@ -24,14 +25,15 @@ for (var pos_x = 0; pos_x < grid_cols; pos_x++){
 	}
 }
 
-pos_y_cave_exit = irandom_range(grid_cols/2, grid_cols);
-pos_x_cave_exit = irandom_range(grid_rows/2, grid_rows);
+pos_x_cave_exit = irandom_range((grid_cols-1)/2, grid_cols-1);
+pos_y_cave_exit = irandom_range((grid_rows-1)/2, grid_rows-1);
 
-terrain_tiles[pos_x_cave_exit, pos_y_cave_exit] = TerrainStruct(spr_cave, "Cave Win" ,"", false, false);
+terrain_tiles[pos_x_cave_exit, pos_y_cave_exit] = TerrainStruct(spr_cave, "Cave Win" ,"", true, true);
 
 pl_health = 100;
 pl_hunger = 100;
 pl_thist = 100;
 inventory_size = 25;
 
-inventory = array_create(inventory_size);
+inventory = [];
+array_push(inventory, ItemStruct("Food",20));
