@@ -12,4 +12,7 @@ for (var i = 0; i < array_length(menu_options); i++) {
     draw_text(x_pos, y_pos + i * 40, text);
 }
 
+draw_set_color(c_white);
 draw_text(x_pos_title, y_pos_title, title);
+
+draw_text(x_pos_ver, y_pos_ver, version);
