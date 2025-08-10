@@ -5,6 +5,7 @@ grid_rows = room_height div cell_size;
 var water_proc = 0.3;
 win = false;
 lose = false;
+hunger = false;
 
 terrain_sprites = [spr_t_grass, spr_t_water];
 terrain_name = ["Grass", "Water"];
@@ -31,7 +32,6 @@ pos_y_cave_exit = irandom_range((grid_rows-1)/2, grid_rows-1);
 terrain_tiles[pos_x_cave_exit, pos_y_cave_exit] = TerrainStruct(spr_cave, "Cave Win" ,"", true, true);
 
 pl_health = 100;
-pl_hunger = 100;
 pl_thist = 100;
 inventory_size = 25;
 
