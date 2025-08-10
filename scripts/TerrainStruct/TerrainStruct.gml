@@ -26,8 +26,8 @@ function rand_resources(name){
 	water_res_procent = 10;
 	grass_res_procent = 20;
 	
-	grass_res = [spr_r_wheat];
-	grass_res_name = ["Wheat"];
+	grass_res = [spr_r_wheat, spr_r_forest];
+	grass_res_name = ["Wheat", "Wood"];
 	
 	water_res = [spr_r_fish];
 	water_res_name = ["Fish"];
