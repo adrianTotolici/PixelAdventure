@@ -65,6 +65,7 @@
     {"id":{"name":"spr_inv_res","path":"sprites/spr_inv_res/spr_inv_res.yy",},},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},
     {"id":{"name":"spr_r_fish","path":"sprites/spr_r_fish/spr_r_fish.yy",},},
+    {"id":{"name":"spr_r_forest","path":"sprites/spr_r_forest/spr_r_forest.yy",},},
     {"id":{"name":"spr_r_wheat","path":"sprites/spr_r_wheat/spr_r_wheat.yy",},},
     {"id":{"name":"spr_t_grass","path":"sprites/spr_t_grass/spr_t_grass.yy",},},
     {"id":{"name":"spr_t_no_explored","path":"sprites/spr_t_no_explored/spr_t_no_explored.yy",},},

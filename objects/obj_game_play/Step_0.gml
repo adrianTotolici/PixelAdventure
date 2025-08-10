@@ -71,6 +71,11 @@ if (keyboard_check_pressed(ord("P"))){
 				pl_health += hp_loos_huger;
 			}
 		}
+		if (res_name == "Wood"){
+			var quantity = tile.resource.quantity;
+			inventory = searchInventory(inventory, "Materials", quantity);
+		}
+		
 		var sprite = tile.resource.sprite;
 		terrain_tiles[player_pos_x][player_pos_y].resource = ResourcesStruct(res_name,0,sprite,true,false);
 		inventory = eatFood(inventory, pickCost, hunger);
