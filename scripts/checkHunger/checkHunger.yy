@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"checkLoose",
+  "%Name":"checkHunger",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"checkLoose",
+  "name":"checkHunger",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",
