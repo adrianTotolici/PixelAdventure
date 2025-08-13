@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"removeFromInventory",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"removeFromInventory",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

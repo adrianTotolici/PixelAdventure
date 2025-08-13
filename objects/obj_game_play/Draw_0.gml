@@ -17,9 +17,3 @@ for (var pos_x = 0; pos_x < grid_cols; pos_x++) {
 var tile_x = player_pos_x * cell_size;
 var tile_y = player_pos_y * cell_size;
 draw_sprite(spr_player, 0, tile_x, tile_y);
-
-
-
-//if (! terrain_tiles[player_pos_x, player_pos_y].explored) {
-//	terrain_tiles[player_pos_x, player_pos_y].explored = true
-//}

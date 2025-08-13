@@ -1,10 +1,5 @@
 /// @description Player movement logic
 
-var moveCost = 0.15;
-var discoverCost = 0.1;
-var pickCost = 0.05;
-var hp_loos_huger = 0.5;
-
 if (pl_health <= 0 ){
 	lose = true;
 }
@@ -64,16 +59,16 @@ if (keyboard_check_pressed(ord("P"))){
 	if (checkItemPick(terrain_tiles[player_pos_x][player_pos_y])){
 		var tile = terrain_tiles[player_pos_x][player_pos_y];
 		var res_name = tile.resource.name;
-		if (res_name == "Wheat" || res_name == "Fish"){
+		if (res_name == wheat || res_name == fish){
 			var quantity = tile.resource.quantity;
-			inventory = searchInventory(inventory, "Food", quantity);
+			inventory = addToInventory(inventory, food, quantity);
 			if (pl_health>0 && pl_health<100){
 				pl_health += hp_loos_huger;
 			}
 		}
-		if (res_name == "Wood"){
+		if (res_name == wood){
 			var quantity = tile.resource.quantity;
-			inventory = searchInventory(inventory, "Materials", quantity);
+			inventory = addToInventory(inventory, materials, quantity);
 		}
 		
 		var sprite = tile.resource.sprite;
@@ -83,5 +78,17 @@ if (keyboard_check_pressed(ord("P"))){
 		if (hunger) {
 			pl_health = pl_health - hp_loos_huger;
 		}
+	}
+}
+
+if (keyboard_check_pressed(ord("B"))){
+	build_open = !build_open;
+}
+
+if (keyboard_check_pressed(ord("R"))){
+	var raft_recepies = getBuildRecepies(recepies, raft);
+	if (raft_recepies != noone && checkInventoryQuantity(inventory, raft_recepies.res_name , raft_recepies.res_quantity)){
+		addToInventory(inventory, raft_recepies.name, 1);
+		removeFromInventory(inventory, raft_recepies.res_name, raft_recepies.res_quantity)
 	}
 }

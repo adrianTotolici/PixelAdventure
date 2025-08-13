@@ -98,13 +98,25 @@ var command_text = [
     "SPACE - discover",
     "g - grid",
 	"p - pick resource",
+	"b - build",
     "ESC - return to main menu"
+];
+
+var build_command = [
+	"b - close build menu",
+	"r - raft (10 materials)"
 ];
 
 draw_set_color(c_white);
 draw_set_font(fnt_game);
-for (var k = 0; k < array_length(command_text); k++) {
-    draw_text(panel_com_x + 8, panel_com_y + 8 + (k * 20), command_text[k]);
+if (build_open){
+	for (var q = 0; q < array_length(build_command); q++){
+		draw_text(panel_com_x + 8, panel_com_y +8 + (q*20), build_command[q]);
+	}
+}else{
+	for (var k = 0; k < array_length(command_text); k++) {
+	  draw_text(panel_com_x + 8, panel_com_y + 8 + (k * 20), command_text[k]);
+	}
 }
 
 // ======== Game Win Message ========

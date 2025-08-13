@@ -1,6 +1,6 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function searchInventory(inventory, item_type, quantityToAdd) {
+function addToInventory(inventory, item_type, quantityToAdd) {
     var found = false;
 
     for (var a = 0; a < array_length(inventory); a++) {
