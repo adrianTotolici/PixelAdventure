@@ -1,4 +1,5 @@
 /// @description Initialize terrain
+
 grid_cols = (room_width div cell_size) - ui_x_grid_size;
 grid_rows = room_height div cell_size;
 
@@ -34,6 +35,8 @@ wooden_club_dmg = 5;
 
 // mobs
 snake = "Snake";
+wolf = "Wolf";
+shark = "Shark";
 
 terrain_sprites = [spr_t_grass, spr_t_water];
 terrain_name = [grass, water];
@@ -49,7 +52,7 @@ for (var pos_x = 0; pos_x < grid_cols; pos_x++){
 		}else{
 			terrain_index = 0;
 		}
-		terrain_tiles[pos_x, pos_y] = TerrainStruct(terrain_sprites[terrain_index], terrain_name[terrain_index],"", false, false);
+		terrain_tiles[pos_x, pos_y] = TerrainStruct(terrain_sprites[terrain_index], terrain_name[terrain_index],"", true, false);
 	}
 }
 
@@ -58,8 +61,8 @@ pos_y_cave_exit = irandom_range((grid_rows-1)/2, grid_rows-1);
 
 terrain_tiles[pos_x_cave_exit, pos_y_cave_exit] = TerrainStruct(spr_cave, "Cave Win" ,"", true, true);
 
-pl_health = 100;
-pl_thist = 100;
+pl_health = 30;
+pl_thist = 50;
 inventory_size = 25;
 moveCost = 0.15;
 discoverCost = 0.1;
@@ -68,8 +71,8 @@ hp_loos_huger = 0.5;
 pl_atk = 1;
 
 inventory = [];
-array_push(inventory, ItemStruct(food,20, food));
-array_push(inventory, ItemStruct(materials,20, materials));
+array_push(inventory, ItemStruct(food,35, food));
+array_push(inventory, ItemStruct(materials,0, materials));
 
 recepies = [];
 array_push(recepies, BuildRecepiesStruct(raft, materials, 10));

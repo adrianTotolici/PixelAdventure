@@ -1,4 +1,5 @@
 /// @description Initialize Main menu
+window_set_fullscreen(true);
 
 x_pos_title = room_width/2 -180;
 y_pos_title = 100;
