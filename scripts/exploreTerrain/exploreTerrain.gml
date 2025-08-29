@@ -86,4 +86,19 @@ function exploreTerrain(terrain_data, pl_pos_x, pl_pos_y){
 	if (!tile.explored){
 		terrain_data[pl_pos_x, pl_pos_y].explored = true;
 	}
+	
+	checkMobsCurrentTile(tile);
+}
+
+function checkMobsCurrentTile(tile){
+	var mob = tile.mob;
+	if (mob != noone && mob.alive && mob.discovered){
+		current_mob_hp = mob.hp;
+		current_mob_name = mob.name;
+		current_mob_atk = mob.atk;
+	}else{
+		current_mob_hp = 0;
+		current_mob_name = noone;
+		current_mob_atk = 0;
+	}
 }

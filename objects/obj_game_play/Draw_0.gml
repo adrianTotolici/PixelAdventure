@@ -11,6 +11,11 @@ for (var pos_x = 0; pos_x < grid_cols; pos_x++) {
 			sprite_ind = tile.resource.sprite;
 		}
 		draw_sprite(sprite_ind, 0, pos_x * cell_size, pos_y * cell_size);
+		if (tile.mob.alive && tile.mob.discovered){
+			var mob_sprite_ind = tile.mob.sprite;
+			draw_sprite(mob_sprite_ind, 0, pos_x* cell_size, pos_y * cell_size);
+		}
+		
     }
 }
 

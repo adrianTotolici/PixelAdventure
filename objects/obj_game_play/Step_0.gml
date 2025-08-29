@@ -35,6 +35,7 @@ if (player_timer == 0 && (!win || !lose)) {
 		win = checkWin(terrain_tiles[player_pos_x][player_pos_y]);
 		inventory = eatFood(inventory, moveCost, hunger);
 		hunger = checkHunger(inventory);
+		pl_health = checkMobAttack(terrain_tiles[player_pos_x][player_pos_y], pl_health);
 		if (hunger) {
 			pl_health = pl_health - hp_loos_huger;
 		}

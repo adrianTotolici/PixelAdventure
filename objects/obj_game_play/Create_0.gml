@@ -63,3 +63,7 @@ array_push(inventory, ItemStruct(materials,20));
 
 recepies = [];
 array_push(recepies, BuildRecepiesStruct(raft, materials, 10))
+
+current_mob_hp = 0;
+current_mob_name = noone;
+current_mob_atk = 0;
