@@ -1,8 +1,9 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function ItemStruct(_name, _quantity){
+function ItemStruct(_name, _quantity, _type){
 	return {
 		name: _name,
-		quantity: _quantity
+		quantity: _quantity,
+		type: _type
 	};
 }

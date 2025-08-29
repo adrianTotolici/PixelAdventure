@@ -1,8 +1,8 @@
-function removeFromInventory(inventory, res_name, quantity){
+function removeFromInventory(inventory, res_name, quantity, type){
 	var found = false;
 	
 	for (var a = 0; a < array_length(inventory); a++) {
-        if (inventory[a].name == res_name) {
+        if (inventory[a].type == res_name) {
             inventory[a].quantity -= quantity;
             found = true;
 			if (inventory[a].quantity <= 0){
@@ -14,7 +14,7 @@ function removeFromInventory(inventory, res_name, quantity){
 
     // If not found, add as a new item
     if (!found) {
-        var newItem = ItemStruct(item_type, quantityToAdd);
+        var newItem = ItemStruct(item_name, quantityToAdd, item_type);
         array_push(inventory, newItem);
     }
 

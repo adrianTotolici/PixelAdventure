@@ -13,10 +13,10 @@ function rand_mesg(name){
 	grass_msg = ["You have steped on grass.", "Grass is green here.", "Poor grass."];
 	water_msg = ["This is cold, BRRR!!", "Water, nothing to sea.", "Well, now i ruined my boots."];  
 	
-	if (name == "Grass"){
+	if (name == grass){
 		var index = irandom(array_length(grass_msg)-1);
 		return grass_msg[index];
-	}else if (name == "Water"){
+	}else if (name == water){
 		var index = irandom(array_length(water_msg)-1);
 		return water_msg[index];
 	}
@@ -28,12 +28,12 @@ function rand_resources(name){
 	grass_res_procent = 20;
 	
 	grass_res = [spr_r_wheat, spr_r_forest];
-	grass_res_name = ["Wheat", "Wood"];
+	grass_res_name = [wheat, wood];
 	
 	water_res = [spr_r_fish];
-	water_res_name = ["Fish"];
+	water_res_name = [fish];
 	
-	if (name == "Grass"){
+	if (name == grass){
 		res_index = irandom(array_length(grass_res)-1);
 		res_number = random_range(1, 5);
 		res_available =irandom(100);
@@ -46,7 +46,7 @@ function rand_resources(name){
 		return resource_data;
 	}
 	
-	if (name == "Water"){
+	if (name == water){
 		res_index = irandom(array_length(water_res)-1);
 		res_number = random_range(1, 5);
 		res_available =irandom(100);
@@ -67,12 +67,12 @@ function rand_mob(name){
 	grass_mob_proc = 20;
 	
 	grass_mob = [spr_e_snake];
-	grass_mob_name = ["snake"];
+	grass_mob_name = [snake];
 	grass_mob_hp = [10];
 	grass_mob_atk = [2];
 	grass_mob_speed = [0.5];
 	
-	if (name == "Grass"){
+	if (name == grass){
 		mob_index = irandom(array_length(grass_mob)-1);
 		mob_availble = irandom(100);
 		if (mob_availble >= 0 && mob_availble <= grass_mob_proc) {

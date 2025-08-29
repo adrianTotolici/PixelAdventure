@@ -3,9 +3,9 @@
 function eatFood(inventory, quantity, hunger){
 	if (! hunger){
 		for (var a=0; a<array_length(inventory); a++){
-			if ("Food" == inventory[a].name){
+			if (food == inventory[a].type){
 				av_quantity = inventory[a].quantity;
-				newItem = ItemStruct(inventory[a].name, av_quantity-quantity);
+				newItem = ItemStruct(inventory[a].name, av_quantity-quantity, inventory[a].type);
 				inventory[a] = newItem;
 			}
 			break;

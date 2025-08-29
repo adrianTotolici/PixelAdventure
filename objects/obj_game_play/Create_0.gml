@@ -13,6 +13,7 @@ build_open = false;
 //resource in inventory
 food = "Food";
 materials = "Materials";
+weapon = "weapon";
 
 // resources on map
 wheat = "Wheat";
@@ -25,6 +26,14 @@ water = "Water";
 
 // buildigs && items
 raft = "Raft";
+woden_club ="Wooden Club";
+
+// dmg list
+no_dmg = 0;
+wooden_club_dmg = 5;
+
+// mobs
+snake = "Snake";
 
 terrain_sprites = [spr_t_grass, spr_t_water];
 terrain_name = [grass, water];
@@ -56,13 +65,15 @@ moveCost = 0.15;
 discoverCost = 0.1;
 pickCost = 0.05;
 hp_loos_huger = 0.5;
+pl_atk = 1;
 
 inventory = [];
-array_push(inventory, ItemStruct(food,20));
-array_push(inventory, ItemStruct(materials,20));
+array_push(inventory, ItemStruct(food,20, food));
+array_push(inventory, ItemStruct(materials,20, materials));
 
 recepies = [];
-array_push(recepies, BuildRecepiesStruct(raft, materials, 10))
+array_push(recepies, BuildRecepiesStruct(raft, materials, 10));
+array_push(recepies, BuildRecepiesStruct(woden_club, materials, 3));
 
 current_mob_hp = 0;
 current_mob_name = noone;

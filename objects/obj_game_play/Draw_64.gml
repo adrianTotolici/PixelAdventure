@@ -71,7 +71,8 @@ draw_set_font(fnt_game);
 
 // Player stats
 var pl_text = [
-    "HP: " + string(pl_health)
+    "HP: " + string(pl_health),
+	"ATK: " + string(pl_atk)
 ];
 var current_line = 0;
 
@@ -146,7 +147,8 @@ var command_text = [
 
 var build_command = [
 	"b - close build menu",
-	"r - raft (10 materials)"
+	"r - raft (10 materials)",
+	"c - wooden club (3 materials)"
 ];
 
 draw_set_color(c_white);

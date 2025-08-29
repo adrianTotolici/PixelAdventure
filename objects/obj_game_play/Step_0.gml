@@ -62,14 +62,14 @@ if (keyboard_check_pressed(ord("P"))){
 		var res_name = tile.resource.name;
 		if (res_name == wheat || res_name == fish){
 			var quantity = tile.resource.quantity;
-			inventory = addToInventory(inventory, food, quantity);
+			inventory = addToInventory(inventory, food, food, quantity);
 			if (pl_health>0 && pl_health<100){
 				pl_health += hp_loos_huger;
 			}
 		}
 		if (res_name == wood){
 			var quantity = tile.resource.quantity;
-			inventory = addToInventory(inventory, materials, quantity);
+			inventory = addToInventory(inventory, materials, food, quantity);
 		}
 		
 		var sprite = tile.resource.sprite;
@@ -78,6 +78,11 @@ if (keyboard_check_pressed(ord("P"))){
 		hunger = checkHunger(inventory);
 		if (hunger) {
 			pl_health = pl_health - hp_loos_huger;
+		}
+		
+		var mob = tile.mob;
+		if (mob.discovered && mob.alive){
+			pl_health = attack(mob.atk, pl_health);
 		}
 	}
 }
@@ -88,8 +93,29 @@ if (keyboard_check_pressed(ord("B"))){
 
 if (keyboard_check_pressed(ord("R"))){
 	var raft_recepies = getBuildRecepies(recepies, raft);
-	if (raft_recepies != noone && checkInventoryQuantity(inventory, raft_recepies.res_name , raft_recepies.res_quantity)){
-		addToInventory(inventory, raft_recepies.name, 1);
-		removeFromInventory(inventory, raft_recepies.res_name, raft_recepies.res_quantity)
+	if (build_open && raft_recepies != noone && checkInventoryQuantity(inventory, raft_recepies.res_name , raft_recepies.res_quantity)){
+		addToInventory(inventory, raft_recepies.name, raft_recepies.name, 1);
+		removeFromInventory(inventory, raft_recepies.res_name, raft_recepies.res_quantity, raft_recepies.res_name)
+	}
+}
+
+if (keyboard_check_pressed(ord("C"))){
+	var w_club_recepies = getBuildRecepies(recepies, woden_club);
+	if (build_open && w_club_recepies != noone && checkInventoryQuantity(inventory, w_club_recepies.res_name , w_club_recepies.res_quantity)){
+		removeFromInventory(inventory, w_club_recepies.res_name, w_club_recepies.res_quantity, weapon);
+		if (! checkInventoryQuantity(inventory, weapon, 0)){
+			pl_atk = pl_atk + wooden_club_dmg;
+		}
+		addToInventory(inventory, weapon, woden_club, 1);
+	}
+}
+
+if (keyboard_check_pressed(ord("A"))){
+	var tile = terrain_tiles[player_pos_x][player_pos_y];
+	var mob = tile.mob;
+	if (mob.discovered && mob.alive){
+		var mobHp = attack(pl_atk, mob.hp);
+		terrain_tiles[player_pos_x][player_pos_y].mob = MobStruct(mob.sprite, mob.name, mobHp, mob.atk, mob.spd, mob.discovered);
+		pl_health = attack(mob.atk, pl_health);
 	}
 }
