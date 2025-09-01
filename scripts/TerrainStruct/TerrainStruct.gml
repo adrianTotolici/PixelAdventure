@@ -11,13 +11,17 @@ function TerrainStruct(_sprite, _name, _msg, _explored, _res){
 
 function rand_mesg(name){
 	grass_msg = ["You have steped on grass.", "Grass is green here.", "Poor grass."];
-	water_msg = ["This is cold, BRRR!!", "Water, nothing to sea.", "Well, now i ruined my boots."];  
+	water_msg = ["This is cold, BRRR!!", "Water, nothing to sea.", "Well, now i ruined my boots."];
+	mud_msg = ["Is this dirt ?", "Now my boots are dirty.", "This is slipery."];
 	
 	if (name == grass){
 		var index = irandom(array_length(grass_msg)-1);
 		return grass_msg[index];
 	}else if (name == water){
 		var index = irandom(array_length(water_msg)-1);
+		return water_msg[index];
+	}else if (name == mud){
+		var index = irandom(array_length(mud_msg)-1);
 		return water_msg[index];
 	}
 	return "N/A !!"
@@ -26,16 +30,23 @@ function rand_mesg(name){
 function rand_resources(name){
 	water_res_procent = 10;
 	grass_res_procent = 20;
+	mud_res_procent = 5;
 	
-	grass_res = [spr_r_wheat, spr_r_forest];
-	grass_res_name = [wheat, wood];
+	grass_res = [spr_r_wheat, spr_r_forest, spr_r_stone];
+	grass_res_name = [wheat, wood, rock];
+	grass_res_max = [4, 5, 2];
 	
 	water_res = [spr_r_fish];
 	water_res_name = [fish];
+	water_res_max = [5];
+	
+	mud_res = [spr_r_stone, spr_r_mushrooms];
+	mud_res_name = [rock, mushrooms];
+	mud_res_max = [3, 4];
 	
 	if (name == grass){
 		res_index = irandom(array_length(grass_res)-1);
-		res_number = random_range(1, 5);
+		res_number = random_range(1, grass_res_max[res_index]);
 		res_available =irandom(100);
 		if (res_available >= 0 && res_available <= grass_res_procent) {
 			resource_data  = ResourcesStruct(grass_res_name[res_index], res_number, grass_res[res_index], false, true);
@@ -48,12 +59,25 @@ function rand_resources(name){
 	
 	if (name == water){
 		res_index = irandom(array_length(water_res)-1);
-		res_number = random_range(1, 5);
+		res_number = random_range(1, water_res_max[res_index]);
 		res_available =irandom(100);
 		if (res_available >= 0 && res_available <= water_res_procent) {
 			resource_data  = ResourcesStruct(water_res_name[res_index], res_number, water_res[res_index], false, true);
 		}else{
 			resource_data  = ResourcesStruct(water_res_name[res_index], res_number, water_res[res_index], false, false);
+		}
+		
+		return resource_data;
+	}
+	
+	if (name == mud){
+		res_index = irandom(array_length(mud_res)-1);
+		res_number = random_range(1, mud_res_max[res_index]);
+		res_available =irandom(100);
+		if (res_available >= 0 && res_available <= mud_res_procent) {
+			resource_data  = ResourcesStruct(mud_res_name[res_index], res_number, mud_res[res_index], false, true);
+		}else{
+			resource_data  = ResourcesStruct(mud_res_name[res_index], res_number, mud_res[res_index], false, false);
 		}
 		
 		return resource_data;

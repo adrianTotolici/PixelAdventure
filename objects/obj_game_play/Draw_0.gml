@@ -7,6 +7,7 @@ for (var pos_x = 0; pos_x < grid_cols; pos_x++) {
 		if (! tile.explored){
 			sprite_ind = spr_t_no_explored;
 		}
+		draw_sprite(sprite_ind, 0, pos_x * cell_size, pos_y * cell_size);
 		if (tile.resource.discoverd && tile.resource.available){
 			sprite_ind = tile.resource.sprite;
 		}

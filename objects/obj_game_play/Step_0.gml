@@ -51,7 +51,7 @@ if (keyboard_check_pressed(ord("P"))){
 	if (checkItemPick(terrain_tiles[player_pos_x][player_pos_y])){
 		var tile = terrain_tiles[player_pos_x][player_pos_y];
 		var res_name = tile.resource.name;
-		if (res_name == wheat || res_name == fish){
+		if (res_name == wheat || res_name == fish || res_name == mushrooms){
 			var quantity = tile.resource.quantity;
 			inventory = addToInventory(inventory, food, food, quantity);
 			if (pl_health>0 && pl_health<100){
@@ -60,7 +60,11 @@ if (keyboard_check_pressed(ord("P"))){
 		}
 		if (res_name == wood){
 			var quantity = tile.resource.quantity;
-			inventory = addToInventory(inventory, materials, food, quantity);
+			inventory = addToInventory(inventory, materials, materials, quantity);
+		}
+		if (res_name == rock){
+			var quantity = tile.resource.quantity;
+			inventory = addToInventory(inventory, materials, materials, quantity);
 		}
 		
 		var sprite = tile.resource.sprite;

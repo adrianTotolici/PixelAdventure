@@ -3,7 +3,9 @@
 grid_cols = (room_width div cell_size) - ui_x_grid_size;
 grid_rows = room_height div cell_size;
 
+// 0 - 0.3 water | 0.31 - 0.5 -mud | rest grass
 var water_proc = 0.3;
+var mud_proc = 0.5;
 win = false;
 lose = false;
 hunger = false;
@@ -20,10 +22,13 @@ weapon = "weapon";
 wheat = "Wheat";
 fish = "Fish";
 wood = "Wood";
+rock = "Rock";
+mushrooms = "Mushrooms";
 
 // terain tiles
 grass = "Grass";
 water = "Water";
+mud = "Mud";
 
 // buildigs && items
 raft = "Raft";
@@ -38,8 +43,8 @@ snake = "Snake";
 wolf = "Wolf";
 shark = "Shark";
 
-terrain_sprites = [spr_t_grass, spr_t_water];
-terrain_name = [grass, water];
+terrain_sprites = [spr_t_grass, spr_t_water, spr_t_mud];
+terrain_name = [grass, water, mud];
 
 terrain_tiles = array_create(grid_cols);
 
@@ -49,6 +54,8 @@ for (var pos_x = 0; pos_x < grid_cols; pos_x++){
 		var rand_terr = random(1);
 		if (rand_terr < water_proc) {
 			terrain_index = 1;
+		}else if (rand_terr < mud_proc){
+			terrain_index = 2;
 		}else{
 			terrain_index = 0;
 		}
@@ -61,7 +68,7 @@ pos_y_cave_exit = irandom_range((grid_rows-1)/2, grid_rows-1);
 
 terrain_tiles[pos_x_cave_exit, pos_y_cave_exit] = TerrainStruct(spr_cave, "Cave Win" ,"", false, true);
 
-pl_health = 30;
+pl_health = 300;
 pl_thist = 50;
 inventory_size = 25;
 moveCost = 0.15;
