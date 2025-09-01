@@ -42,6 +42,7 @@ wooden_club_dmg = 5;
 snake = "Snake";
 wolf = "Wolf";
 shark = "Shark";
+spider = "Spider";
 
 terrain_sprites = [spr_t_grass, spr_t_water, spr_t_mud];
 terrain_name = [grass, water, mud];

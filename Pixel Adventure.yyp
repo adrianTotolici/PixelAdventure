@@ -73,6 +73,7 @@
     {"id":{"name":"spr_cave","path":"sprites/spr_cave/spr_cave.yy",},},
     {"id":{"name":"spr_e_shark","path":"sprites/spr_e_shark/spr_e_shark.yy",},},
     {"id":{"name":"spr_e_snake","path":"sprites/spr_e_snake/spr_e_snake.yy",},},
+    {"id":{"name":"spr_e_spider","path":"sprites/spr_e_spider/spr_e_spider.yy",},},
     {"id":{"name":"spr_e_wolf","path":"sprites/spr_e_wolf/spr_e_wolf.yy",},},
     {"id":{"name":"spr_inv_res","path":"sprites/spr_inv_res/spr_inv_res.yy",},},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},

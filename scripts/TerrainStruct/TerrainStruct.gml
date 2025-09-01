@@ -22,7 +22,7 @@ function rand_mesg(name){
 		return water_msg[index];
 	}else if (name == mud){
 		var index = irandom(array_length(mud_msg)-1);
-		return water_msg[index];
+		return mud_msg[index];
 	}
 	return "N/A !!"
 }
@@ -89,6 +89,7 @@ function rand_resources(name){
 function rand_mob(name){
 	grass_mob_proc = 20;
 	water_mob_proc = 10;
+	mud_mob_proc = 10;
 	
 	grass_mob = [spr_e_snake, spr_e_wolf];
 	grass_mob_name = [snake, wolf];
@@ -101,6 +102,12 @@ function rand_mob(name){
 	water_mob_hp = [8];
 	water_mob_atk = [5];
 	water_mob_speed = [1.5];
+	
+	mud_mob = [spr_e_spider];
+	mud_mob_name = [spider];
+	mud_mob_hp = [5];
+	mud_mob_atk = [10];
+	mud_mob_speed = [1];
 	
 	if (name == grass){
 		mob_index = irandom(array_length(grass_mob)-1);
@@ -121,6 +128,18 @@ function rand_mob(name){
 			mob_data = MobStruct(water_mob[mob_index], water_mob_name[mob_index], water_mob_hp[mob_index], water_mob_atk[mob_index], water_mob_speed[mob_index],false);
 		}else{
 			mob_data = MobStruct(water_mob[mob_index], water_mob_name[mob_index], 0, water_mob_atk[mob_index], water_mob_speed[mob_index], false);
+		}
+		
+		return mob_data;
+	}
+	
+	if (name == mud){
+		mob_index = irandom(array_length(mud_mob)-1);
+		mob_availble = irandom(100);
+		if (mob_availble >= 0 && mob_availble <= mud_mob_proc) {
+			mob_data = MobStruct(mud_mob[mob_index], mud_mob_name[mob_index], mud_mob_hp[mob_index], mud_mob_atk[mob_index], mud_mob_speed[mob_index],false);
+		}else{
+			mob_data = MobStruct(mud_mob[mob_index], mud_mob_name[mob_index], 0, mud_mob_atk[mob_index], mud_mob_speed[mob_index], false);
 		}
 		
 		return mob_data;
