@@ -145,7 +145,6 @@ draw_rectangle(panel_com_x, panel_com_y, panel_com_x + panel_com_w, panel_com_y 
 
 // --- Commands ---
 var command_text = [
-    "SPACE - discover",
     "g - grid",
     "p - pick resource",
     "b - build",

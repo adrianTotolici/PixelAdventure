@@ -6,87 +6,59 @@ function exploreTerrain(terrain_data, pl_pos_x, pl_pos_y){
 	// * & *
 	// * * *
 	if (pl_pos_x>0)  && (pl_pos_y>0){
-		tile = terrain_data[pl_pos_x-1, pl_pos_y-1];
-		if (!tile.explored){
-			terrain_data[pl_pos_x-1, pl_pos_y-1].explored = true;
-		}
+		explore(terrain_data, pl_pos_x-1, pl_pos_y-1);
 	}
 	
 	// * * *
 	// x & *
 	// * * *
 	if (pl_pos_x >0){
-		tile = terrain_data[pl_pos_x-1, pl_pos_y];
-		if (!tile.explored){
-			terrain_data[pl_pos_x-1, pl_pos_y].explored = true;
-		}
+		explore(terrain_data, pl_pos_x-1, pl_pos_y);
 	}
 	
 	// * * *
 	// * & *
 	// x * *
 	if (pl_pos_x > 0) && (pl_pos_y < (array_length(terrain_data[0]) - 1)) {
-		tile = terrain_data[pl_pos_x-1, pl_pos_y+1];
-		if (!tile.explored){
-			terrain_data[pl_pos_x-1, pl_pos_y+1].explored = true;
-		}
+		explore(terrain_data, pl_pos_x-1, pl_pos_y+1);
 	}
 	
 	// * * *
 	// * & *
 	// * x *
 	if (pl_pos_y < array_length(terrain_data[0]) - 1) {
-		tile = terrain_data[pl_pos_x, pl_pos_y+1];
-		if (!tile.explored){
-			terrain_data[pl_pos_x, pl_pos_y+1].explored = true;
-		}
+		explore(terrain_data, pl_pos_x, pl_pos_y+1);
 	}
 	
 	// * * *
 	// * & *
 	// * * x
 	if (pl_pos_x < array_length(terrain_data) - 1) && (pl_pos_y < array_length(terrain_data[0]) - 1) {
-		tile = terrain_data[pl_pos_x+1, pl_pos_y+1];
-		if (!tile.explored){
-			terrain_data[pl_pos_x+1, pl_pos_y+1].explored = true;
-		}
+		explore(terrain_data, pl_pos_x+1, pl_pos_y+1);
 	}
 	
 	// * * *
 	// * & x
 	// * * *
 	if (pl_pos_x < array_length(terrain_data) - 1) {
-		tile = terrain_data[pl_pos_x+1, pl_pos_y];
-		if (!tile.explored){
-			terrain_data[pl_pos_x+1, pl_pos_y].explored = true;
-		}
+		explore(terrain_data, pl_pos_x+1, pl_pos_y);
 	}
 	
 	// * * x
 	// * & *
 	// * * *
 	if (pl_pos_x < array_length(terrain_data) - 1) && (pl_pos_y > 0){
-		tile = terrain_data[pl_pos_x+1, pl_pos_y-1];
-		if (!tile.explored){
-			terrain_data[pl_pos_x+1, pl_pos_y-1].explored = true;
-		}
+		explore(terrain_data, pl_pos_x+1, pl_pos_y-1);
 	}
 	
 	// * x *
 	// * & *
 	// * * *
 	if (pl_pos_y > 0){
-		tile = terrain_data[pl_pos_x, pl_pos_y-1];
-		if (!tile.explored){
-			terrain_data[pl_pos_x, pl_pos_y-1].explored = true;
-		}
+		explore(terrain_data, pl_pos_x, pl_pos_y-1);
 	}
 	
-	tile = terrain_data[pl_pos_x, pl_pos_y];
-	if (!tile.explored){
-		terrain_data[pl_pos_x, pl_pos_y].explored = true;
-	}
-	
+	explore(terrain_data, pl_pos_x, pl_pos_y);
 	checkMobsCurrentTile(tile);
 }
 
@@ -100,5 +72,18 @@ function checkMobsCurrentTile(tile){
 		current_mob_hp = 0;
 		current_mob_name = noone;
 		current_mob_atk = 0;
+	}
+}
+
+function explore(terrain_data, pos_x, pos_y){
+	tile = terrain_data[pos_x, pos_y];
+	if (!tile.explored){
+		terrain_data[pos_x, pos_y].explored = true;
+		if (terrain_data[pos_x, pos_y].resource.available) {
+			terrain_data[pos_x, pos_y].resource.discoverd = true;
+		}
+		if (terrain_data[pos_x, pos_y].mob.alive){
+			terrain_data[pos_x, pos_y].mob.discovered = true;
+		}
 	}
 }

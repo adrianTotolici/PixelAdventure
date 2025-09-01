@@ -52,14 +52,14 @@ for (var pos_x = 0; pos_x < grid_cols; pos_x++){
 		}else{
 			terrain_index = 0;
 		}
-		terrain_tiles[pos_x, pos_y] = TerrainStruct(terrain_sprites[terrain_index], terrain_name[terrain_index],"", true, false);
+		terrain_tiles[pos_x, pos_y] = TerrainStruct(terrain_sprites[terrain_index], terrain_name[terrain_index],"", false, false);
 	}
 }
 
 pos_x_cave_exit = irandom_range((grid_cols-1)/2, grid_cols-1);
 pos_y_cave_exit = irandom_range((grid_rows-1)/2, grid_rows-1);
 
-terrain_tiles[pos_x_cave_exit, pos_y_cave_exit] = TerrainStruct(spr_cave, "Cave Win" ,"", true, true);
+terrain_tiles[pos_x_cave_exit, pos_y_cave_exit] = TerrainStruct(spr_cave, "Cave Win" ,"", false, true);
 
 pl_health = 30;
 pl_thist = 50;

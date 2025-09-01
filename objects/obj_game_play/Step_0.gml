@@ -47,15 +47,6 @@ if (keyboard_check(vk_escape)) {
 	 room_goto(rm_main_menu);
 }
 
-if (keyboard_check_pressed(vk_space)) {
-	discoverRes(terrain_tiles, player_pos_x, player_pos_y);
-	inventory = eatFood(inventory, discoverCost, hunger);
-	hunger = checkHunger(inventory);
-	if (hunger) {
-		pl_health = pl_health - hp_loos_huger;
-	}
-}
-
 if (keyboard_check_pressed(ord("P"))){
 	if (checkItemPick(terrain_tiles[player_pos_x][player_pos_y])){
 		var tile = terrain_tiles[player_pos_x][player_pos_y];
