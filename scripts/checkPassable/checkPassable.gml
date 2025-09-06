@@ -4,5 +4,8 @@ function checkPassable(tile_check) {
     if (tile_check.name == water && !checkInventoryQuantity(inventory, raft, 1)) {
         return false; // can't pass water without raft
     }
+	if (tile_check.name == cliff){
+		return false;
+	}
     return true; // all other cases passable
 }

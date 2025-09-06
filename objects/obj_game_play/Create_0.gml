@@ -6,6 +6,7 @@ grid_rows = room_height div cell_size;
 // 0 - 0.3 water | 0.31 - 0.5 -mud | rest grass
 var water_proc = 0.3;
 var mud_proc = 0.5;
+var cliff_proc = 0.6;
 win = false;
 lose = false;
 hunger = false;
@@ -29,10 +30,12 @@ mushrooms = "Mushrooms";
 grass = "Grass";
 water = "Water";
 mud = "Mud";
+cliff = "Cliff";
 
 // buildigs && items
 raft = "Raft";
 woden_club ="Wooden Club";
+farm_plot = "Farm Plot";
 
 // dmg list
 no_dmg = 0;
@@ -44,8 +47,8 @@ wolf = "Wolf";
 shark = "Shark";
 spider = "Spider";
 
-terrain_sprites = [spr_t_grass, spr_t_water, spr_t_mud];
-terrain_name = [grass, water, mud];
+terrain_sprites = [spr_t_grass, spr_t_water, spr_t_mud, spr_t_cliff];
+terrain_name = [grass, water, mud, cliff];
 
 terrain_tiles = array_create(grid_cols);
 
@@ -57,6 +60,8 @@ for (var pos_x = 0; pos_x < grid_cols; pos_x++){
 			terrain_index = 1;
 		}else if (rand_terr < mud_proc){
 			terrain_index = 2;
+		}else if (rand_terr < cliff_proc){
+			terrain_index = 3;
 		}else{
 			terrain_index = 0;
 		}
@@ -83,8 +88,10 @@ array_push(inventory, ItemStruct(food,35, food));
 array_push(inventory, ItemStruct(materials,0, materials));
 
 recepies = [];
-array_push(recepies, BuildRecepiesStruct(raft, materials, 10));
-array_push(recepies, BuildRecepiesStruct(woden_club, materials, 3));
+array_push(recepies, BuildRecepiesStruct(raft, materials, 4));
+array_push(recepies, BuildRecepiesStruct(woden_club, materials, 2));
+array_push(recepies, BuildRecepiesStruct(farm_plot, materials, 8));
+
 
 current_mob_hp = 0;
 current_mob_name = noone;

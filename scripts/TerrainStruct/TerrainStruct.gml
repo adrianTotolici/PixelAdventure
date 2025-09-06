@@ -5,7 +5,9 @@ function TerrainStruct(_sprite, _name, _msg, _explored, _res){
 		msg: rand_mesg(_name),
 		explored: _explored,
 		resource: rand_resources(_name),
-		mob: rand_mob(_name)
+		mob: rand_mob(_name),
+		building_spr: noone,
+		building: noone
 	};
 }
 

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"BuildingStruct",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"BuildingStruct",
+  "parent":{
+    "name":"structures",
+    "path":"folders/Scripts/structures.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -24,6 +24,9 @@ var info_text = [
     player_tile_pos.msg,
     "Res: " + string(player_tile_pos.resource.name) + ", " + string(player_tile_pos.resource.quantity),
     "Mob: " + player_tile_pos.mob.name,
+	"",
+	"",
+	
     "----------------------"
 ];
 
@@ -47,6 +50,16 @@ for (var j = 0; j < array_length(info_text); j++) {
         }
         continue;
     }
+	if (j == 5) {
+		if (player_tile_pos.building != noone){
+			info_text[j] = "Building: " + string(player_tile_pos.building.name);
+			info_text[j+1] = string(player_tile_pos.building.resource.name) + " " + string(player_tile_pos.building.resource.quantity);
+			draw_set_color(c_yellow);
+			draw_text(panel_x + 8, panel_y + (8 + 20 * j), info_text[j]);
+            draw_set_color(c_white);
+			j=j+1;
+		}
+	}
     draw_text(panel_x + 8, panel_y + (8 + 20 * j), info_text[j]);
 }
 
@@ -154,8 +167,9 @@ var command_text = [
 
 var build_items = [
 	{ name: "b - close build menu", spr: spr_inv_res },
-    { name: "r - raft (10 mat)", spr: spr_wooden_raft },
-    { name: "c - wood club (3 mat)", spr: spr_wooden_club }
+    { name: "r - raft (4 mat)", spr: spr_wooden_raft },
+    { name: "c - wood club (2 mat)", spr: spr_wooden_club },
+    { name: "f - farm plot (8 mat)", spr: spr_b_farm_plot },
 ];
 
 if (build_open) {

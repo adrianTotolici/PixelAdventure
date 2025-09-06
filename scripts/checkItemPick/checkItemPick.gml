@@ -2,7 +2,8 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function checkItemPick(tile){
 	var res = tile.resource;
-	if (res.discoverd && res.available && res.quantity > 0){
+	var building = tile.building;
+	if (res.discoverd && res.available && res.quantity > 0) || (building != noone && building.resource != noone){
 		return true;
 	}else{
 		return false;
